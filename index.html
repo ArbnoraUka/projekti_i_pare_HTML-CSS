@@ -15,7 +15,7 @@
     />
   </head>
   <body>
-    <header>
+    <header id="header_id">
       <ul class="my-menu">
         <li>
           <a href="#"
@@ -46,16 +46,26 @@
         </ul>
       </nav>
       <div class="search">
-        <form action="" method="get" class="search-bar">
-          <input type="text" placeholder="Search" />
-          <button type="submit">
+        <form
+          id="searchForm"
+          action="javascript:search();"
+          method="get"
+          class="search-bar"
+        >
+          <input
+            type="text"
+            id="input"
+            class="from-control"
+            placeholder="search ..."
+          />
+          <button id="searchBtn" onclick="search();" type="button">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
       </div>
     </header>
     <div id="home.html">
-      <main>
+      <main id="main_id">
         <div class="wallper">
           <h2>NextApp</h2>
           <h4>A Modern Software Development Company</h4>
@@ -76,19 +86,21 @@
                 <h2><span>Top Notch Services. </span></h2>
                 <hr />
               </div>
-              <div class="lead">
-                <p>
-                  Our quality standards apply also in terms of service,
-                  technical expertise and advice.
-                  <br />
-                  Our dedicated employees are happy to assist you with know-how
-                  and experience in your daily business.
-                </p>
+              <div class="lead" id="para1">
+                <div class="col-md-2">
+                  <p>
+                    Our quality standards apply also in terms of service,
+                    technical expertise and advice.
+                    <br />
+                    Our dedicated employees are happy to assist you with
+                    know-how and experience in your daily business.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="services-column">
-            <div class="service-column-1">
+          <div class="services-column" id="para2">
+            <div class="service-column-1 col-md-2">
               <img src="images/foto-1.png" alt="foto-1" />
               <h3>Native Cloud Applications</h3>
               <p>
@@ -99,7 +111,7 @@
                 Google Cloud and other cloud providers.
               </p>
             </div>
-            <div class="service-column-2">
+            <div class="service-column-2 col-md-2">
               <img src="images/foto-2.png" alt="foto-2" />
               <h3>Artificial Intelligence</h3>
               <p>
@@ -113,7 +125,7 @@
                 supervised and unsupervised learning scenarios.
               </p>
             </div>
-            <div class="service-column-3">
+            <div class="service-column-3 col-md-2">
               <img src="images/foto-3.png " alt="foto-3" />
               <h3>Enterprise Software Development</h3>
               <p>
@@ -125,7 +137,7 @@
                 technologies to create such demanding custom software.
               </p>
             </div>
-            <div class="service-column-4">
+            <div class="service-column-4 col-md-2">
               <img src="images/foto-4.png" alt="foto-4" />
               <h3>AR/VR</h3>
               <p>
@@ -137,7 +149,7 @@
                 custom solutions.
               </p>
             </div>
-            <div class="service-column-5">
+            <div class="service-column-5 col-md-2">
               <img src="images/foto-5.png" alt="foto-5" />
               <h3>Mobile App Development</h3>
               <p>
@@ -150,7 +162,7 @@
                 to deployment.
               </p>
             </div>
-            <div class="service-column-6">
+            <div class="service-column-6 col-md-2">
               <img src="images/foto-6.png" alt="foto-6" />
               <h3>Desktop Apps Development</h3>
               <p>
@@ -162,7 +174,7 @@
                 highest work efficiency as well as quality.
               </p>
             </div>
-            <div class="service-column-7">
+            <div class="service-column-7 col-md-2">
               <img src="images/foto-7.png" alt="foto-7" />
               <h3>Internet of Things</h3>
               <p>
@@ -176,7 +188,7 @@
                 development.
               </p>
             </div>
-            <div class="service-column-8">
+            <div class="service-column-8 col-md-2">
               <img src="images/foto-8.png" alt="foto-8" />
               <h3>UI/UX</h3>
               <p>
@@ -189,17 +201,19 @@
                 of clients, which in turn affects the business growth.
               </p>
             </div>
-            <div class="service-column-9">
-              <img src="images/foto-9.png" alt="foto-9" />
-              <h3>Consultancy</h3>
-              <p>
-                Use the expertise and deep tech background of the best minds to
-                create comprehensive IT strategy for a digital and technological
-                transformation of your organization that goes in line with your
-                business objectives. Our tech background capabilities include
-                both software and communication technologies with decades long
-                experience.
-              </p>
+            <div id="para3">
+              <div class="service-column-9 col-md-2">
+                <img src="images/foto-9.png" alt="foto-9" />
+                <h3>Consultancy</h3>
+                <p>
+                  Use the expertise and deep tech background of the best minds
+                  to create comprehensive IT strategy for a digital and
+                  technological transformation of your organization that goes in
+                  line with your business objectives. Our tech background
+                  capabilities include both software and communication
+                  technologies with decades long experience.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -345,7 +359,40 @@
     </section>
     <section>
       <div class="connect">
-        <h3>Connect with us on</h3>
+        <h3>Get in touch</h3>
+        <div class="login">
+          <input type="checkbox" id="show" />
+          <label for="show" class="showw-btn">Contact us</label>
+          <div id="overlay">
+            <label for="show" class="close-btn fas fa-times"></label>
+
+            <form onsubmit="event.preventDefault(); validateForm()">
+              <h1>Contact Us</h1>
+
+              <label for="name">Name*</label>
+              <input type="text" id="name" placeholder="Your name" />
+              <small class="error"></small>
+
+              <label for="email">Email*</label>
+              <input type="text" id="email" placeholder="Your email" />
+              <small class="error"></small>
+
+              <label for="message">Message*</label>
+              <textarea
+                id="message"
+                placeholder="Your message..."
+                rows="5"
+              ></textarea>
+              <small class="error"></small>
+              <div class="center">
+                <input type="submit" value="Send Massege" />
+                <p id="success"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <h3>Follow us on social media</h3>
         <div class="social-media">
           <ul>
             <li>
@@ -363,7 +410,7 @@
           <div class="address">
             <div class="card">
               <i class="card-icon far fa-envelope"></i>
-              <p>email@webdevelopment.com</p>
+              <p>email@nextapp.com</p>
             </div>
             <div class="card">
               <i class="card-icon fas fa-phone"></i>
@@ -379,8 +426,9 @@
     </section>
     <footer>
       <div class="main-footer">
-        <p>&copy all rights reserved to NextApp</p>
+        <p>&copy NextApp. All rights reserved - 2022</p>
       </div>
     </footer>
+    <script src="search.js"></script>
   </body>
 </html>
